@@ -1,7 +1,7 @@
 'use strict'
 
 // creating a base name for the mongodb
-const mongooseBaseName = 'Boston_CodeTrotters_API'
+const mongooseBaseName = 'intelligent-saucisson-98228'
 
 // create the mongodb uri for development and test
 const database = {
