@@ -10,6 +10,14 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  newUser: {
+    type: Boolean,
+    default: true
+  },
+  role: {
+    type: String,
+    default: 'basic'
+  },
   token: String
 }, {
   timestamps: true,
