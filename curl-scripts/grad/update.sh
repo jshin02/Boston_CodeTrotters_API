@@ -5,9 +5,20 @@ curl "${API}${URL_PATH}/${ID}" \
   --include \
   --request PATCH \
   --header "Content-Type: application/json" \
---data '{
+  --data '{
     "person": {
-      "compliment": "'"${TEXT}"'"
+      "name": "'"${NAME}"'",
+      "role": "'"${ROLE}"'",
+      "compliment": "'"${COMP}"'",
+      "interests": "'"${INTERESTS}"'",
+      "imageUrl": "'"${IMG}"'",
+      "linkedin": "'"${IN}"'",
+      "github": "'"${GITHUB}"'",
+      "email": "'"${EMAIL}"'",
+      "instagram": "'"${INSTA}"'",
+      "messageTitle": "'"${TITLE}"'",
+      "messageContent": "'"${CONTENT}"'",
+      "endorsements": "'"${ENDORSEMENTS}"'"
     }
   }'
 

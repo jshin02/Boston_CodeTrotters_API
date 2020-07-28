@@ -11,6 +11,7 @@ curl "${API}${URL_PATH}" \
       "role": "'"${ROLE}"'",
       "compliment": "'"${COMP}"'",
       "interests": "'"${INTERESTS}"'",
+      "imageUrl": "'"${IMG}"'",
       "linkedin": "'"${IN}"'",
       "email": "'"${EMAIL}"'",
       "instagram": "'"${INSTA}"'"

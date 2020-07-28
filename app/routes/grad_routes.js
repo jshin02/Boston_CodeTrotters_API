@@ -48,6 +48,7 @@ router.get('/grads', (req, res, next) => {
 router.get('/grads/:id', (req, res, next) => {
   Grad.findById(req.params.id)
     .then(grad => {
+      console.log(grad)
       return res.status(200).json({ grad: grad.toObject() })
     })
     .catch(next)
@@ -56,7 +57,6 @@ router.get('/grads/:id', (req, res, next) => {
 // CREATE
 // POST
 router.post('/grads', (req, res, next) => {
-  console.log()
   Grad.create(req.body.person)
     .then(person => {
       res.status(201).json({ person: person})
