@@ -16,6 +16,7 @@ const BadParamsError = errors.BadParamsError
 const BadCredentialsError = errors.BadCredentialsError
 
 const User = require('../models/user')
+const Grad = require('../models/grad')
 
 // passing this as a second argument to `router.<verb>` will make it
 // so that a token MUST be passed for that route to be available
@@ -97,6 +98,18 @@ router.post('/sign-in', (req, res, next) => {
     })
     .catch(next)
 })
+
+// Assign user a profile ID
+// SHOW/GET
+router.get('/user', (req, res, next) => {
+  Grad.findOne({ name: req.body.credentials.name })
+    .then(grad => {
+      console.log(grad)
+      return res.status(200).json({ grad: grad.toObject() })
+    })
+    .catch(next)
+})
+
 
 // CHANGE password
 // PATCH /change-password
