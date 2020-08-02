@@ -8,10 +8,11 @@ curl "${API}${URL_PATH}/${ID}" \
   --data '{
     "person": {
       "name": "'"${NAME}"'",
-      "role": "'"${ROLE}"'",
+      "identity": "'"${IDENTITY}"'",
       "compliment": "'"${COMP}"'",
       "interests": "'"${INTERESTS}"'",
       "imageUrl": "'"${IMG}"'",
+      "assignedToUser": "'"${TOUSER}"'",
       "linkedin": "'"${IN}"'",
       "github": "'"${GITHUB}"'",
       "email": "'"${EMAIL}"'",

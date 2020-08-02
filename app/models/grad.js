@@ -21,6 +21,10 @@ const gradSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  assignedToUser:{
+    type: Boolean,
+    default: false
+  },
   linkedin:{
     type: String
   },

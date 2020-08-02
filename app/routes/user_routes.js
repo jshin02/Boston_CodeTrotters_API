@@ -99,10 +99,11 @@ router.post('/sign-in', (req, res, next) => {
     .catch(next)
 })
 
-// Assign user a profile ID
-// SHOW/GET
-router.get('/user', (req, res, next) => {
-  Grad.findOne({ name: req.body.credentials.name })
+// Assign user a grad ID
+// SHOW/GET GRAD model
+router.get('/grad/:name', (req, res, next) => {
+  console.log(req.params)
+  Grad.findOne({ name: req.params.name })
     .then(grad => {
       console.log(grad)
       return res.status(200).json({ grad: grad.toObject() })
@@ -110,6 +111,24 @@ router.get('/user', (req, res, next) => {
     .catch(next)
 })
 
+// Get user's info using their id and TOKEN
+// Show User model
+router.get('/grad/:id', requireToken, (req, res, next) => {
+  User.findById(req.params.id)
+    .then(user => {
+      console.log(user)
+      return res.status(200).json({ user: user.toObject() })
+    })
+    .catch(next)
+})
+
+//Update user's details
+router.patch('/gradId', requireToken, (req, res, next) => {
+  User.findById(req.body.person.id)
+    .then(record => record.updateOne({ gradId: req.body.person.gradId }))
+    .then(() => res.sendStatus(204))
+    .catch(next)
+})
 
 // CHANGE password
 // PATCH /change-password
