@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const songSchema = require('./songSchema')
 
 const gradSchema = new mongoose.Schema({
   name: {
@@ -37,7 +38,7 @@ const gradSchema = new mongoose.Schema({
   instagram:{
     type: String
   },
-  messageTitle:{
+  adviceContent:{
     type: String
   },
   messageContent:{
@@ -45,6 +46,11 @@ const gradSchema = new mongoose.Schema({
   },
   endorsements:{
     type: String
+  },
+  songs: [songSchema],
+  owner: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User'
   }
 }, {
   timestamps: true
