@@ -68,8 +68,10 @@ router.post('/songs/:id', (req, res, next) => {
     .then(song => {
       Grad.findById(req.params.id)
         .then(grad => {
-          grad.songs.push(song)
-          return grad.save()
+          if(song){
+            grad.songs.push(song)
+            return grad.save()
+          }
         })
         .then(grad => res.status(200).json({ grad: grad.toObject() }))
         .catch(next)
