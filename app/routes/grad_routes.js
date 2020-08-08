@@ -66,7 +66,7 @@ router.post('/grads', (req, res, next) => {
 
 // UPDATE
 // PATCH
-router.patch('/grads/:id', removeBlanks, (req,res,next) => {
+router.patch('/grads/:id', (req,res,next) => {
   Grad.findById(req.params.id)
     .then(handle404)
     .then(grad => {
