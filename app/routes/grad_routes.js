@@ -66,10 +66,17 @@ router.post('/grads', (req, res, next) => {
 
 // UPDATE
 // PATCH
-router.patch('/grads/:id', (req,res,next) => {
+router.patch('/grads/:id', removeBlanks, (req,res,next) => {
+  // if the client attempts to change the `owner` property by including a new
+  // owner, prevent that by deleting that key/value pair
+  if(req.body.person.assignedToUser){
+    delete req.body.person.owner
+  }
+  console.log('here', req.body.person)
   Grad.findById(req.params.id)
     .then(handle404)
     .then(grad => {
+      // requireOwnership(req, grad)
       return grad.updateOne(req.body.person)
     })
     .then(() => res.sendStatus(204))

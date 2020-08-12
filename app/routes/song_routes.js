@@ -99,7 +99,7 @@ router.patch('/songs/:id', removeBlanks, (req, res, next) => {
     .then(song => {
       // pass the `req` object and the Mongoose record to `requireOwnership`
       // it will throw an error if the current user isn't the owner
-      // requireOwnership(req, example)
+      requireOwnership(req, song)
 
       // pass the result of Mongoose's `.update` to the next `.then`
       return song.updateOne(req.body.song)
@@ -123,12 +123,6 @@ router.patch('/grads/:id/songs/:songId', removeBlanks, (req, res, next) => {
       return grad.save()
     })
     .then(grad => {
-    //   Song.findById(req.params.songId)
-    //     .then(song => {
-    //       return song.updateOne(req.body.song)
-    //     })
-    //   return grad
-    console.log(grad)
     res.sendStatus(204)
     })
     .catch(next)
@@ -154,6 +148,7 @@ router.delete('/grads/:id/songs/:songId', (req, res, next) => {
   Grad.findById(req.params.id)
     .then(handle404)
     .then(grad => {
+      requireOwnership(req, grad)
       grad.songs.id(req.params.songId).remove()
       return grad.save()
     })

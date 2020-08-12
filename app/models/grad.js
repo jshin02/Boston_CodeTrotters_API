@@ -14,6 +14,10 @@ const gradSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  organization: {
+    type: String,
+    required: true
+  },
   interests:{
     type: String,
     required: true

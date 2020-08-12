@@ -10,11 +10,17 @@ curl "${API}${URL_PATH}" \
       "name": "'"${NAME}"'",
       "role": "'"${ROLE}"'",
       "compliment": "'"${COMP}"'",
+      "organization": "'"${ORG}"'",
       "interests": "'"${INTERESTS}"'",
       "imageUrl": "'"${IMG}"'",
+      "assignedToUser": "'"${TOUSER}"'",
       "linkedin": "'"${IN}"'",
+      "github": "'"${GIBHUB}"'",
       "email": "'"${EMAIL}"'",
-      "instagram": "'"${INSTA}"'"
+      "instagram": "'"${INSTA}"'",
+      "adviceContent": "'"${ADVICE}"'",
+      "messageContent": "'"${MESSAGE}"'",
+      "endorsements": "'"${ENDORSEMENTS}"'"
     }
   }'
 

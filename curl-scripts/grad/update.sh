@@ -8,17 +8,18 @@ curl "${API}${URL_PATH}/${ID}" \
   --data '{
     "person": {
       "name": "'"${NAME}"'",
-      "identity": "'"${IDENTITY}"'",
+      "role": "'"${ROLE}"'",
       "compliment": "'"${COMP}"'",
+      "organization": "'"${ORG}"'",
       "interests": "'"${INTERESTS}"'",
       "imageUrl": "'"${IMG}"'",
       "assignedToUser": "'"${TOUSER}"'",
       "linkedin": "'"${IN}"'",
-      "github": "'"${GITHUB}"'",
+      "github": "'"${GIBHUB}"'",
       "email": "'"${EMAIL}"'",
       "instagram": "'"${INSTA}"'",
-      "messageTitle": "'"${TITLE}"'",
-      "messageContent": "'"${CONTENT}"'",
+      "adviceContent": "'"${ADVICE}"'",
+      "messageContent": "'"${MESSAGE}"'",
       "endorsements": "'"${ENDORSEMENTS}"'"
     }
   }'
