@@ -148,7 +148,7 @@ router.delete('/grads/:id/songs/:songId', (req, res, next) => {
   Grad.findById(req.params.id)
     .then(handle404)
     .then(grad => {
-      requireOwnership(req, grad)
+      // requireOwnership(req, grad)
       grad.songs.id(req.params.songId).remove()
       return grad.save()
     })
